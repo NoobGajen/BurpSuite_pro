@@ -20,7 +20,7 @@ For commercial use, please purchase genuine software - https://portswigger.net/b
 
 &ensp;&ensp;&ensp;&ensp;:https://portswigger.net/burp/releases/download?product=pro&version=2023.11.1.1&type=Jar
 
-> wget -O burpsuite_pro.jar --quiet --show-progress https://portswigger.net/burp/releases/download?product=pro&version=2023.11.1.1&type=Jar
+> wget -O burpsuite_pro_2023.11.1.jar --quiet --show-progress https://portswigger.net/burp/releases/download?product=pro&version=2023.11.1.1&type=Jar
 
 ### Loader
 
