@@ -3,9 +3,7 @@
 <h1 align="center">Welcome to <b>Burp Suite loader</b>👋</h1>
 
 
-**Note:** For commercial use, please purchase genuine software from <a href="https://portswigger.net/Burp/pro" target="_blank">
-  <img src="https://portswigger.net/content/images/logos/portswigger-logo.svg" alt="PortSwigger" style="max-width:100%; height:50px;">
-</a>
+**Note:** For commercial use, please purchase genuine software from PortSwigger
 
 
 **⚠️ Notice:** The previous version of this project was subject to a DMCA complaint from PortSwigger due to lack of obfuscation. Please review the JAR package for clarity.
