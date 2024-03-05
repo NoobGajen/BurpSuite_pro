@@ -1,6 +1,4 @@
-<p align="center"><img width="400" src="https://github.com/m41k1n4177/BurpSuite/assets/106442797/2ac09e0d-fbce-400b-982b-d30f14486f26"/>
-
-<img src="https://portswigger.net/burp/communitydownload/images/burp-pro-logo.svg" alt="Burp Suite Professional logo" width="1080" height="400">
+<p align="center"><img src="https://portswigger.net/burp/communitydownload/images/burp-pro-logo.svg" alt="Burp Suite Professional logo" width="360" height="260"></p>
 
 <h1 align="center">Welcome to <b>Burp Suite loader</b>👋</h1>
 
