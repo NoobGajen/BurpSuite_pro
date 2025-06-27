@@ -1,2 +1,16 @@
-burpsuite_pro_v2025.5.5.jar
-burpsuite_pro_v2025.3.2.jar
+# Burp Suite JAR files (users download these)
+/burpsuite_desktop_v*.jar
+/burpsuite_pro*.jar
+burpsuite_pro.jar
+
+# Generated executables
+/burpsuite
+/burpsuite-launcher
+/burpsuite_pro_launcher
+
+# Config files
+/.config.ini
+.config.ini
+
+# Cache directories
+.jython_cache

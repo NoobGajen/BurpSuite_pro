@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=BurpSuite Professional
 Encoding=UTF-8
-Exec=/home/gajen/Tools/BurpSuite-Pro/burpsuite_pro_v2025.3.2
-Icon=/home/gajen/Tools/BurpSuite-Pro/burpsuite-pro-icon.png
+Exec=REPLACE_EXEC_PATH
+Icon=REPLACE_ICON_PATH
 StartupNotify=false
 Terminal=false
 Version=1.0
