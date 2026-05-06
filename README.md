@@ -19,16 +19,16 @@ If this project has been helpful, consider giving it a ⭐️ [here](https://git
 ## Loader Options
 
 ### 1. Loader (Version Recommended)
-[Download Loader (Recommended)](https://github.com/m41k1n4177/BurpSuite/blob/main/loader.jar)
+[Download Loader (Recommended)](https://github.com/noobgajen/BurpSuite_pro/blob/master/loader.jar)
 
 ```bash
-wget -O loader.jar --quiet --show-progress https://github.com/m41k1n4177/BurpSuite/blob/main/loader.jar
+wget -O loader.jar --quiet --show-progress https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/loader.jar
 ```
 ### 2. Default Loader (Parent Repo)
-[Download Default Loader](https://github.com/m41k1n4177/BurpSuite/blob/main/BurpSuiteLoader.jar)
+[Download Default Loader](https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/BurpSuiteLoader.jar)
 
 ```bash
-wget -O BurpSuiteLoader.jar --quiet --show-progress https://github.com/m41k1n4177/BurpSuite/blob/main/BurpSuiteLoader.jar
+wget -O BurpSuiteLoader.jar --quiet --show-progress https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/BurpSuiteLoader.jar
 ```
 Choose the loader that works best for your requirements. If in doubt, opt for the recommended version
 
@@ -81,7 +81,7 @@ java -noverify -Dsun.java2d.d3d=false -Dsun.java2d.noddraw=true --add-opens=java
 ## 📝 Discussion
 
 
-If you have questions or better suggestions on how to use it, you can ask [issue](https://github.com/m41k1n4177/BurpSuite/issues).
+If you have questions or better suggestions on how to use it, you can ask [issue](https://github.com/noobgajen/BurpSuite_pro/issues).
 NB! Be prepared to bear the full weight of responsibility for any incorrectly asked questions and general stupidity in my repository. 
 
 ## ❤️ Acknowledgements

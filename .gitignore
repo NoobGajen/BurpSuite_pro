@@ -1,1 +1,3 @@
 /burpsuite_pro*.jar
+.jython_cache
+install.sh
