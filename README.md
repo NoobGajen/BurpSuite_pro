@@ -8,13 +8,14 @@
 
 **⚠️ Notice:** The previous version of this project was subject to a DMCA complaint from PortSwigger due to lack of obfuscation. Please review the JAR package for clarity.
 
-If this project has been helpful, consider giving it a ⭐️ [here](https://github.com/x-Ai/BurpSuite) 🥰.
+If this project has been helpful, consider giving it a ⭐️ [here](https://github.com/NoobGajen/BurpSuite_pro) 🥰.
 
 ## Burp Suite Professional Download
 
-- [Download Burp Suite Professional 2023.11.1.1 JAR](https://portswigger.net/burp/releases/download?product=pro&version=2023.11.1.1&type=Jar)
+[Download Burp Suite Professional 2026.3.3 JAR](https://portswigger.net/burp/releases/download?product=pro&version=2026.3.3&type=Jar)
   ```bash
-  wget -O burpsuite_pro.jar --quiet --show-progress https://portswigger.net/burp/releases/download?product=pro&version=2023.11.1.1&type=Jar
+  wget -O burpsuite_pro.jar --quiet --show-progress "https://portswigger.net/burp/releases/download?product=pro&version=2026.3.3&type=Jar"
+```
 
 ## Loader Options
 
