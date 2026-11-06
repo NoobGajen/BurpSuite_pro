@@ -30,11 +30,10 @@ A simple and automated installer for Burp Suite Professional with loader activat
 git clone https://github.com/NoobGajen/BurpSuite_pro.git
 cd BurpSuite_pro
 ./install.sh
-# Activate Burp Suite (one-time setup)
-# Arch Linux: /usr/lib/jvm/java-21-openjdk/bin/java
-# Debian/Kali: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+
+# Activate Burp Suite (one-time setup) 
 /usr/lib/jvm/java-21-openjdk-amd64/bin/java -jar h3110w0r1d-y_loader.jar  # Debian/Kali
-# OR
+
 /usr/lib/jvm/java-21-openjdk/bin/java -jar h3110w0r1d-y_loader.jar  # Arch Linux
 ```
 
@@ -44,10 +43,8 @@ cd BurpSuite_pro
 Before using Burp Suite for the first time, you need to activate it:
 
 ```bash
-# Arch Linux: /usr/lib/jvm/java-21-openjdk/bin/java
-# Debian/Kali: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
 /usr/lib/jvm/java-21-openjdk-amd64/bin/java -jar h3110w0r1d-y_loader.jar  # Debian/Kali
-# OR
+
 /usr/lib/jvm/java-21-openjdk/bin/java -jar h3110w0r1d-y_loader.jar  # Arch Linux
 ```
 
@@ -62,7 +59,7 @@ Once the loader GUI opens:
 8. Paste it into the response field in Burp Suite or click the Paste Response button
 9. Click Next to complete activation
 
-**Note:** This is a one-time step for activating Burp Suite. `Now you are ready to use Burp Suite Professional from Application menu`.
+**Note:** This is a one-time step for activating Burp Suite. `Now you are ready to use Burp Suite Professional by launching it from the application menu`.
 
 ---
 
@@ -118,10 +115,8 @@ After installation, you can launch Burp Suite from your application menu or by r
 Before using Burp Suite for the first time, you need to activate it:
 
 ```bash
-# Arch Linux: /usr/lib/jvm/java-21-openjdk/bin/java
-# Debian/Kali: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
 /usr/lib/jvm/java-21-openjdk-amd64/bin/java -jar h3110w0r1d-y_loader.jar  # Debian/Kali
-# OR
+ 
 /usr/lib/jvm/java-21-openjdk/bin/java -jar h3110w0r1d-y_loader.jar  # Arch Linux
 ```
 
