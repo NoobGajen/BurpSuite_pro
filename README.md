@@ -13,7 +13,6 @@ A simple and automated installer for Burp Suite Professional with loader activat
 - [Quick Start](#-quick-start)
 - [Provider Activation](#provider-activation-one-time-setup)
 - [Burp Suite Professional Download](#burp-suite-professional-download-optional)
-- [Loader Options](#-loader-options)
 - [Installation](#-installation)
   - [Automated Installation](#automated-installation)
   - [Arch Linux Manual Installation](#installation-steps-for-burp-suite-professional-on-arch-linux)
@@ -77,32 +76,7 @@ wget -O burpsuite_pro.jar --quiet --show-progress "https://portswigger.net/burp/
 
 **Important:** Download the Burpsuite professional jar file from official site if the command is not working: https://portswigger.net/burp/releases#professional
 
-## 🔧 Loader Options
-
-This repository includes two loaders. Choose the one that works best for you:
-
-### 1. h3110w0r1d-y_loader.jar (Recommended)
-- **Author**: [h3110w0r1d-y](https://github.com/h3110w0r1d-y)
-- **Status**: Latest version, actively maintained
-- **Download**: [h3110w0r1d-y_loader.jar](https://github.com/NoobGajen/BurpSuite_pro/blob/master/h3110w0r1d-y_loader.jar)
-
-```bash
-wget -O h3110w0r1d-y_loader.jar --quiet --show-progress https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/h3110w0r1d-y_loader.jar
-```
-
-### 2. x-Ai_loader.jar (Alternative)
-- **Author**: [x-ai](https://github.com/x-ai)
-- **Status**: Parent repository loader
-- **Download**: [x-Ai_loader.jar](https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/x-Ai_loader.jar)
-
-```bash
-wget -O x-Ai_loader.jar --quiet --show-progress https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/x-Ai_loader.jar
-```
-
-**Note:** Both loaders are included in this repository. You can use either one directly without downloading. The automated installer uses `h3110w0r1d-y_loader.jar` by default.
-
 ---
-
 
 ## 🚀 Installation
 
