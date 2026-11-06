@@ -62,10 +62,10 @@ elif [ "$OS" = "debian" ]; then
     echo "Installing wget, file, and OpenJDK 21 (or 17 for older releases)..."
     if [ "$EUID" -eq 0 ]; then
         apt update
-        apt install -y wget file openjdk-21-jre-headless || apt install -y wget file openjdk-17-jre-headless
+        apt install -y wget file openjdk-21-jdk || apt install -y wget file openjdk-17-jre-headless
     else
         sudo apt update
-        sudo apt install -y wget file openjdk-21-jre-headless || sudo apt install -y wget file openjdk-17-jre-headless
+        sudo apt install -y wget file openjdk-21-jdk || sudo apt install -y wget file openjdk-17-jre-headless
     fi
 fi
 
@@ -206,12 +206,19 @@ else
     fi
 fi
 
+# Detect Java path based on OS
+if [ "$OS" = "arch" ]; then
+    JAVA_PATH="/usr/lib/jvm/java-21-openjdk/bin/java"
+else
+    JAVA_PATH="/usr/lib/jvm/java-21-openjdk-amd64/bin/java"
+fi
+
 # Step 5: Create launcher script
 echo ""
 echo "Step 5: Creating launcher script..."
 cat > burpsuite_pro_launcher << EOF_SCRIPT
 #!/bin/bash
-java -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$(pwd)/$LOADER_JAR -jar $(pwd)/$BURP_JAR &
+$JAVA_PATH -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$(pwd)/$LOADER_JAR -jar $(pwd)/$BURP_JAR &
 EOF_SCRIPT
 
 # Step 6: Make executable
@@ -252,4 +259,4 @@ echo ""
 echo "You can also launch Burp Suite from your application menu."
 echo ""
 echo "Alternatively, you can run Burp directly with:"
-echo "java -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$INSTALL_DIR/$LOADER_JAR -jar $INSTALL_DIR/$BURP_JAR"
+echo "$JAVA_PATH -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$INSTALL_DIR/$LOADER_JAR -jar $INSTALL_DIR/$BURP_JAR"

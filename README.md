@@ -27,15 +27,15 @@ A simple and automated installer for Burp Suite Professional with loader activat
 ## ⚡ Quick Start
 
 ```bash
-# Clone the repository
 git clone https://github.com/NoobGajen/BurpSuite_pro.git
 cd BurpSuite_pro
-
-# Run the automated installer
 ./install.sh
-
 # Activate Burp Suite (one-time setup)
-java -jar h3110w0r1d-y_loader.jar
+# Arch Linux: /usr/lib/jvm/java-21-openjdk/bin/java
+# Debian/Kali: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+/usr/lib/jvm/java-21-openjdk-amd64/bin/java -jar h3110w0r1d-y_loader.jar  # Debian/Kali
+# OR
+/usr/lib/jvm/java-21-openjdk/bin/java -jar h3110w0r1d-y_loader.jar  # Arch Linux
 ```
 
 ---
@@ -44,14 +44,17 @@ java -jar h3110w0r1d-y_loader.jar
 Before using Burp Suite for the first time, you need to activate it:
 
 ```bash
-# Run the loader activator
-java -jar h3110w0r1d-y_loader.jar
+# Arch Linux: /usr/lib/jvm/java-21-openjdk/bin/java
+# Debian/Kali: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+/usr/lib/jvm/java-21-openjdk-amd64/bin/java -jar h3110w0r1d-y_loader.jar  # Debian/Kali
+# OR
+/usr/lib/jvm/java-21-openjdk/bin/java -jar h3110w0r1d-y_loader.jar  # Arch Linux
 ```
 
 Once the loader GUI opens:
 1. Change the License Text to something like "licensed to yourName" (or whatever you prefer)
 2. Copy the license key from the h3110w0r1d-y_loader.jar license section
-3. Open Burp Suite and paste the license key in the activation section, then click Next
+3. Open Burp Suite and click the "Continue with Burp Suite Professional" button, then paste the license key in the activation section, and click Next
 4. Choose Manual Activation in Burp Suite
 5. Click on Copy Request in Burp Suite
 6. Paste the request into the Activation Request section in h3110w0r1d-y_loader.jar
@@ -59,7 +62,7 @@ Once the loader GUI opens:
 8. Paste it into the response field in Burp Suite or click the Paste Response button
 9. Click Next to complete activation
 
-**Note:** This is a one-time step for activating Burp Suite.
+**Note:** This is a one-time step for activating Burp Suite. `Now you are ready to use Burp Suite Professional from Application menu`.
 
 ---
 
@@ -92,8 +95,8 @@ The provided `install.sh` script supports both Arch Linux and Debian-based syste
 ```
 
 The script will:
-- **Arch Linux**: Install wget and configure Java 21
-- **Debian/Ubuntu/Kali**: Install wget, file, and OpenJDK 21 (or 17 for older releases)
+- **Arch Linux**: Install wget and jdk21-openjdk
+- **Debian/Ubuntu/Kali**: Install wget, file, and openjdk-21-jdk (or 17 for older releases)
 - Download Burp Suite Professional JAR from PortSwigger (default: 2026.10.1)
 - Use h3110w0r1d-y_loader.jar from the repository (or download if missing)
 - Create a `burpsuite_pro_launcher` executable in the current directory
@@ -102,17 +105,10 @@ The script will:
 
 **Usage:**
 ```bash
-# Install with default version (2026.10.1) and interactive prompts
-./install.sh
-
-# Install with specific version
-./install.sh --version 2026.10.1
-
-# Install with default selections (no prompts)
-./install.sh --defaults
-
-# Show help
-./install.sh --help
+./install.sh                    # Interactive mode
+./install.sh --version 2026.10.1  # Specific version
+./install.sh --defaults         # No prompts
+./install.sh --help             # Show help
 ```
 
 After installation, you can launch Burp Suite from your application menu or by running `./burpsuite_pro_launcher`.
@@ -122,14 +118,17 @@ After installation, you can launch Burp Suite from your application menu or by r
 Before using Burp Suite for the first time, you need to activate it:
 
 ```bash
-# Run the loader activator
-java -jar h3110w0r1d-y_loader.jar
+# Arch Linux: /usr/lib/jvm/java-21-openjdk/bin/java
+# Debian/Kali: /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+/usr/lib/jvm/java-21-openjdk-amd64/bin/java -jar h3110w0r1d-y_loader.jar  # Debian/Kali
+# OR
+/usr/lib/jvm/java-21-openjdk/bin/java -jar h3110w0r1d-y_loader.jar  # Arch Linux
 ```
 
 Once the loader GUI opens:
 1. Change the License Text to something like "licensed to yourName" (or whatever you prefer)
 2. Copy the license key from the h3110w0r1d-y_loader.jar license section
-3. Open Burp Suite and paste the license key in the activation section, then click Next
+3. Open Burp Suite and click the "Continue with Burp Suite Professional" button, then paste the license key in the activation section, and click Next
 4. Choose Manual Activation in Burp Suite
 5. Click on Copy Request in Burp Suite
 6. Paste the request into the Activation Request section in h3110w0r1d-y_loader.jar
@@ -148,6 +147,8 @@ Once the loader GUI opens:
 paru -S wget jdk21-openjdk --noconfirm
 ```
 
+**Note:** The package name for Arch Linux is `jdk21-openjdk` (not `openjdk-21-jdk` which is for Debian/Kali).
+
 ### 2. Configure system to use Java 21:
 ```bash
 sudo archlinux-java set java-21-openjdk
@@ -156,21 +157,14 @@ sudo archlinux-java set java-21-openjdk
 ### 3. Download Burp Suite Professional:
 
 ```bash
-# Set your desired version
 BURP_VERSION="2026.10.1"
 wget -O burpsuite_pro_v${BURP_VERSION}.jar --quiet --show-progress "https://portswigger.net/burp/releases/download?product=desktop&version=${BURP_VERSION}&type=Jar"
-
-# Verify the downloaded file is a JAR (not HTML)
 file burpsuite_pro_v${BURP_VERSION}.jar
 ```
 
 ### 4. Choose and download loader (if not already present):
 
 ```bash
-# Note: Both loaders are included in this repository
-# Recommended loader (h3110w0r1d-y_loader.jar) is used by default
-# Alternative loader (x-Ai_loader.jar) is also available
-# If they're missing, you can download them with:
 wget -O h3110w0r1d-y_loader.jar --quiet --show-progress https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/h3110w0r1d-y_loader.jar
 wget -O x-Ai_loader.jar --quiet --show-progress https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/x-Ai_loader.jar
 ```
@@ -179,7 +173,7 @@ wget -O x-Ai_loader.jar --quiet --show-progress https://github.com/NoobGajen/Bur
 ```bash
 cat > burpsuite_pro_launcher << EOF
 #!/bin/bash
-java -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$(pwd)/h3110w0r1d-y_loader.jar -jar $(pwd)/burpsuite_pro_v${BURP_VERSION}.jar &
+/usr/lib/jvm/java-21-openjdk/bin/java -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$(pwd)/h3110w0r1d-y_loader.jar -jar $(pwd)/burpsuite_pro_v${BURP_VERSION}.jar &
 EOF
 ```
 
@@ -190,14 +184,13 @@ chmod +x burpsuite_pro_launcher
 
 ### 7. Provider Activation:
 ```bash
-# Run the loader activator
-java -jar h3110w0r1d-y_loader.jar
+/usr/lib/jvm/java-21-openjdk/bin/java -jar h3110w0r1d-y_loader.jar
 ```
 
 Once the loader GUI opens:
 1. Change the License Text to something like "licensed to yourName" (or whatever you prefer)
 2. Copy the license key from the h3110w0r1d-y_loader.jar license section
-3. Open Burp Suite and paste the license key in the activation section, then click Next
+3. Open Burp Suite and click the "Continue with Burp Suite Professional" button, then paste the license key in the activation section, and click Next
 4. Choose Manual Activation in Burp Suite
 5. Click on Copy Request in Burp Suite
 6. Paste the request into the Activation Request section in h3110w0r1d-y_loader.jar
@@ -209,8 +202,6 @@ Once the loader GUI opens:
 
 ### 8. Install .desktop file to application menu:
 ```bash
-# Replace paths with your actual installation directory
-# Note: burpsuite-professional.desktop and burpsuite-pro-icon.png are included in this repository
 INSTALL_DIR=$(pwd)
 mkdir -p ~/.local/share/applications
 sed "s|REPLACE_EXEC_PATH|$INSTALL_DIR/burpsuite_pro_launcher|g" burpsuite-professional.desktop | \
@@ -228,7 +219,7 @@ sed "s|REPLACE_ICON_PATH|$INSTALL_DIR/burpsuite-pro-icon.png|g" > ~/.local/share
 
 ```bash
 sudo apt update
-sudo apt install -y wget file openjdk-21-jre-headless
+sudo apt install -y wget file openjdk-21-jdk
 ```
 
 **Note:** On older Debian releases (like bookworm), Java 21 may not be available. In that case, the script will automatically install OpenJDK 17 instead.
@@ -236,21 +227,14 @@ sudo apt install -y wget file openjdk-21-jre-headless
 ### 2. Download Burp Suite Professional:
 
 ```bash
-# Set your desired version
 BURP_VERSION="2026.10.1"
 wget -O burpsuite_pro_v${BURP_VERSION}.jar --quiet --show-progress "https://portswigger.net/burp/releases/download?product=desktop&version=${BURP_VERSION}&type=Jar"
-
-# Verify the downloaded file is a JAR (not HTML)
 file burpsuite_pro_v${BURP_VERSION}.jar
 ```
 
 ### 3. Choose and download loader (if not already present):
 
 ```bash
-# Note: Both loaders are included in this repository
-# Recommended loader (h3110w0r1d-y_loader.jar) is used by default
-# Alternative loader (x-Ai_loader.jar) is also available
-# If they're missing, you can download them with:
 wget -O h3110w0r1d-y_loader.jar --quiet --show-progress https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/h3110w0r1d-y_loader.jar
 wget -O x-Ai_loader.jar --quiet --show-progress https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/x-Ai_loader.jar
 ```
@@ -260,7 +244,7 @@ wget -O x-Ai_loader.jar --quiet --show-progress https://github.com/NoobGajen/Bur
 ```bash
 cat > burpsuite_pro_launcher << EOF
 #!/bin/bash
-java -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$(pwd)/h3110w0r1d-y_loader.jar -jar $(pwd)/burpsuite_pro_v${BURP_VERSION}.jar &
+/usr/lib/jvm/java-21-openjdk-amd64/bin/java -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$(pwd)/h3110w0r1d-y_loader.jar -jar $(pwd)/burpsuite_pro_v${BURP_VERSION}.jar &
 EOF
 ```
 
@@ -271,14 +255,13 @@ chmod +x burpsuite_pro_launcher
 
 ### 6. Provider Activation:
 ```bash
-# Run the loader activator
-java -jar h3110w0r1d-y_loader.jar
+/usr/lib/jvm/java-21-openjdk-amd64/bin/java -jar h3110w0r1d-y_loader.jar
 ```
 
 Once the loader GUI opens:
 1. Change the License Text to something like "licensed to yourName" (or whatever you prefer)
 2. Copy the license key from the h3110w0r1d-y_loader.jar license section
-3. Open Burp Suite and paste the license key in the activation section, then click Next
+3. Open Burp Suite and click the "Continue with Burp Suite Professional" button, then paste the license key in the activation section, and click Next
 4. Choose Manual Activation in Burp Suite
 5. Click on Copy Request in Burp Suite
 6. Paste the request into the Activation Request section in h3110w0r1d-y_loader.jar
@@ -290,8 +273,6 @@ Once the loader GUI opens:
 
 ### 7. Install .desktop file to application menu:
 ```bash
-# Replace paths with your actual installation directory
-# Note: burpsuite-professional.desktop and burpsuite-pro-icon.png are included in this repository
 INSTALL_DIR=$(pwd)
 mkdir -p ~/.local/share/applications
 sed "s|REPLACE_EXEC_PATH|$INSTALL_DIR/burpsuite_pro_launcher|g" burpsuite-professional.desktop | \
@@ -308,12 +289,20 @@ sed "s|REPLACE_ICON_PATH|$INSTALL_DIR/burpsuite-pro-icon.png|g" > ~/.local/share
 
 ### 1. Updated Java helper command (Recommended)
 ```bash
-java -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$(pwd)/h3110w0r1d-y_loader.jar -jar burpsuite_pro.jar
+# Arch Linux
+/usr/lib/jvm/java-21-openjdk/bin/java -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$(pwd)/h3110w0r1d-y_loader.jar -jar burpsuite_pro.jar
+
+# OR Debian/Kali
+/usr/lib/jvm/java-21-openjdk-amd64/bin/java -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$(pwd)/h3110w0r1d-y_loader.jar -jar burpsuite_pro.jar
 ```
 
 ### 2. Previous Java helper command fallback (Parent Repo)
 ```bash
-java -noverify -Dsun.java2d.d3d=false -Dsun.java2d.noddraw=true --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED -javaagent:$(pwd)/x-Ai_loader.jar -jar burpsuite_pro.jar
+# Arch Linux
+/usr/lib/jvm/java-21-openjdk/bin/java -noverify -Dsun.java2d.d3d=false -Dsun.java2d.noddraw=true --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED -javaagent:$(pwd)/x-Ai_loader.jar -jar burpsuite_pro.jar
+
+# OR Debian/Kali
+/usr/lib/jvm/java-21-openjdk-amd64/bin/java -noverify -Dsun.java2d.d3d=false -Dsun.java2d.noddraw=true --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED -javaagent:$(pwd)/x-Ai_loader.jar -jar burpsuite_pro.jar
 ```
 
 
