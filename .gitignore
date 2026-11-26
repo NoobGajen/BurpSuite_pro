@@ -14,3 +14,14 @@ burpsuite_pro.jar
 
 # Cache directories
 .jython_cache
+
+# Download staging and Python test cache
+*.part.*
+__pycache__/
+
+# Generated Windows launcher files
+/launcher.json
+/launcher.log
+/launcher-error.log
+/burpsuite-pro-icon.ico
+/burpsuite_pro_launcher.ps1

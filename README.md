@@ -1,361 +1,306 @@
-<p align="center"><img src="https://portswigger.net/burp/communitydownload/images/burp-pro-logo.svg" alt="Burp Suite Professional logo" width="360" height="260"></p>
+<p align="center"><img src="https://portswigger.net/burp/communitydownload/images/burp-pro-logo.svg" alt="Burp Suite Professional logo" width="320"></p>
 
-<h1 align="center">Welcome to <b>Burp Suite loader</b>👋</h1>
+# Burp Suite installer
 
-A simple and automated installer for Burp Suite Professional with loader activation. Supports Arch Linux and Debian-based systems. Includes loaders by h3110w0r1d-y and x-ai.
+Install on Arch Linux, Debian/Ubuntu/Kali/Parrot, or Windows. Professional features require an
+appropriate license from [PortSwigger](https://portswigger.net/burp/pro).
 
-**Note:** For commercial use, please purchase genuine software from PortSwigger
+## Purpose and licensing
 
----
+I share this project for students like me who want to learn cybersecurity but
+cannot easily afford expensive tools. My goal is to help learners build practical
+skills, prepare for a first job, and eventually support the tools they use through
+paid licenses or properly licensed access provided by an employer.
 
-## 📑 Table of Contents
+Please purchase an appropriate [Burp Suite Professional license from PortSwigger](https://portswigger.net/burp/pro)
+for professional or commercial work. Professional use requires a valid license;
+educational intent does not automatically exempt other uses from licensing requirements.
+This project is independent of PortSwigger and is not endorsed by them. Its educational
+purpose does not grant permission to bypass licensing or override their terms.
 
-- [Quick Start](#-quick-start)
-- [Provider Activation](#provider-activation-one-time-setup)
-- [Burp Suite Professional Download](#burp-suite-professional-download-optional)
-- [Installation](#-installation)
-  - [Automated Installation](#automated-installation)
-  - [Arch Linux Manual Installation](#installation-steps-for-burp-suite-professional-on-arch-linux)
-  - [Debian/Ubuntu/Kali Manual Installation](#installation-steps-for-burp-suite-professional-on-debianubuntukali)
-- [Java Helper Commands](#java-helper-command-for-injecting-previously-downloaded-activator-into-burp)
-- [Troubleshooting](#-troubleshooting)
-- [Discussion](#-discussion)
-- [Acknowledgements](#-acknowledgements)
+Students looking for a free starting point can use
+[Burp Suite Community Edition](https://portswigger.net/burp/communitydownload)
+and the [Web Security Academy](https://portswigger.net/web-security).
+For licensed Professional installations, follow PortSwigger's
+[official activation guide](https://portswigger.net/burp/documentation/desktop/getting-started/activating-burp-license).
 
----
+## Contents
 
-## ⚡ Quick Start
+- [Purpose and licensing](#purpose-and-licensing)
+- [Quick start](#quick-start): [Linux](#linux) · [Windows](#windows)
+- [Activation guide](#activation-guide)
+- [Options](#options)
+- [Versions and updates](#versions-and-updates)
+- [Downloads and manual installation](#downloads-and-manual-installation)
+- [Bundled components](#bundled-components)
+- [Troubleshooting](#troubleshooting)
+- [Uninstall](#uninstall)
+- [Development and feedback](#development-and-feedback)
 
-```bash
+## Quick start
+
+Download and extract the repository ZIP, or clone it:
+
+```sh
 git clone https://github.com/NoobGajen/BurpSuite_pro.git
 cd BurpSuite_pro
-./install.sh
-
-# Activate Burp Suite (one-time setup) 
-/usr/lib/jvm/java-21-openjdk-amd64/bin/java -jar h3110w0r1d-y_loader.jar  # Debian/Kali
-
-/usr/lib/jvm/java-21-openjdk/bin/java -jar h3110w0r1d-y_loader.jar  # Arch Linux
 ```
 
----
-## Provider Activation (One-time setup)
+### Linux
 
-Before using Burp Suite for the first time, you need to activate it:
+Requires **Python 3.8+**. Run as your normal user; setup uses `sudo` for Java installation only.
 
-```bash
-/usr/lib/jvm/java-21-openjdk-amd64/bin/java -jar h3110w0r1d-y_loader.jar  # Debian/Kali
-
-/usr/lib/jvm/java-21-openjdk/bin/java -jar h3110w0r1d-y_loader.jar  # Arch Linux
+```sh
+python3 install.py
 ```
 
-Once the loader GUI opens:
-1. Change the License Text to something like "licensed to yourName" (or whatever you prefer)
-2. Copy the license key from the h3110w0r1d-y_loader.jar license section
-3. Open Burp Suite and click the "Continue with Burp Suite Professional" button, then paste the license key in the activation section, and click Next
-4. Choose Manual Activation in Burp Suite
-5. Click on Copy Request in Burp Suite
-6. Paste the request into the Activation Request section in h3110w0r1d-y_loader.jar
-7. Copy the activation response text from h3110w0r1d-y_loader.jar
-8. Paste it into the response field in Burp Suite or click the Paste Response button
-9. Click Next to complete activation
+Choose a Burp version and loader. The default installation directory is the repository directory.
+After setup, open **BurpSuite Professional** from your application menu, or run from the installation directory:
 
-**Note:** This is a one-time step for activating Burp Suite. `Now you are ready to use Burp Suite Professional by launching it from the application menu`.
-
----
-
-## Burp Suite Professional Download (optional)
-
-Download the latest version from PortSwigger or specify a version:
-
-```bash
-# Example: Download version 2026.10.1
-wget -O burpsuite_pro.jar --quiet --show-progress "https://portswigger.net/burp/releases/download?product=desktop&version=2026.10.1&type=Jar"
-
-# To download a different version, replace 2026.10.1 with your desired version
-```
-
-**Important:** Download the Burpsuite professional jar file from official site if the command is not working: https://portswigger.net/burp/releases#professional
-
----
-
-## 🚀 Installation
-
-⚠️ **Note:** We strongly advise **against** downloading any all-in-one installer for security reasons. Instead, follow the steps provided in this repository to download Burp Pro from an authentic source and activate it using the available loader.
-
-### Automated Installation
-
-The provided `install.sh` script supports both Arch Linux and Debian-based systems (Ubuntu, Kali Linux, etc.):
-
-```bash
-# Run the installation script
-./install.sh
-```
-
-The script will:
-- **Arch Linux**: Install wget and jdk21-openjdk
-- **Debian/Ubuntu/Kali**: Install wget, file, and openjdk-21-jdk (or 17 for older releases)
-- Download Burp Suite Professional JAR from PortSwigger (default: 2026.10.1)
-- Use h3110w0r1d-y_loader.jar from the repository (or download if missing)
-- Create a `burpsuite_pro_launcher` executable in the current directory
-- Install the `.desktop` file to your application menu with full paths
-- Provide instructions for launching Burp Suite
-
-**Usage:**
-```bash
-./install.sh                    # Interactive mode
-./install.sh --version 2026.10.1  # Specific version
-./install.sh --defaults         # No prompts
-./install.sh --help             # Show help
-```
-
-After installation, you can launch Burp Suite from your application menu or by running `./burpsuite_pro_launcher`.
-
-### Provider Activation (One-time setup)
-
-Before using Burp Suite for the first time, you need to activate it:
-
-```bash
-/usr/lib/jvm/java-21-openjdk-amd64/bin/java -jar h3110w0r1d-y_loader.jar  # Debian/Kali
- 
-/usr/lib/jvm/java-21-openjdk/bin/java -jar h3110w0r1d-y_loader.jar  # Arch Linux
-```
-
-Once the loader GUI opens:
-1. Change the License Text to something like "licensed to yourName" (or whatever you prefer)
-2. Copy the license key from the h3110w0r1d-y_loader.jar license section
-3. Open Burp Suite and click the "Continue with Burp Suite Professional" button, then paste the license key in the activation section, and click Next
-4. Choose Manual Activation in Burp Suite
-5. Click on Copy Request in Burp Suite
-6. Paste the request into the Activation Request section in h3110w0r1d-y_loader.jar
-7. Copy the activation response text from h3110w0r1d-y_loader.jar
-8. Paste it into the response field in Burp Suite or click the Paste Response button
-9. Click Next to complete activation
-
-**Note:** This is a one-time step for activating Burp Suite.
-
-## Installation Steps for Burp Suite Professional on  <a href="https://archlinux.org"><img src="https://img.shields.io/badge/Arch_Linux-1793D1?&logo=arch-linux&logoColor=white"></a>
-
-
-### 1. Install dependencies & Java 21:
-
-```bash
-paru -S wget jdk21-openjdk --noconfirm
-```
-
-**Note:** The package name for Arch Linux is `jdk21-openjdk` (not `openjdk-21-jdk` which is for Debian/Kali).
-
-### 2. Configure system to use Java 21:
-```bash
-sudo archlinux-java set java-21-openjdk
-```
-
-### 3. Download Burp Suite Professional:
-
-```bash
-BURP_VERSION="2026.10.1"
-wget -O burpsuite_pro_v${BURP_VERSION}.jar --quiet --show-progress "https://portswigger.net/burp/releases/download?product=desktop&version=${BURP_VERSION}&type=Jar"
-file burpsuite_pro_v${BURP_VERSION}.jar
-```
-
-### 4. Choose and download loader (if not already present):
-
-```bash
-wget -O h3110w0r1d-y_loader.jar --quiet --show-progress https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/h3110w0r1d-y_loader.jar
-wget -O x-Ai_loader.jar --quiet --show-progress https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/x-Ai_loader.jar
-```
-
-### 5. Create launcher script:
-```bash
-cat > burpsuite_pro_launcher << EOF
-#!/bin/bash
-/usr/lib/jvm/java-21-openjdk/bin/java -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$(pwd)/h3110w0r1d-y_loader.jar -jar $(pwd)/burpsuite_pro_v${BURP_VERSION}.jar &
-EOF
-```
-
-### 6. Make executable:
-```bash
-chmod +x burpsuite_pro_launcher
-```
-
-### 7. Provider Activation:
-```bash
-/usr/lib/jvm/java-21-openjdk/bin/java -jar h3110w0r1d-y_loader.jar
-```
-
-Once the loader GUI opens:
-1. Change the License Text to something like "licensed to yourName" (or whatever you prefer)
-2. Copy the license key from the h3110w0r1d-y_loader.jar license section
-3. Open Burp Suite and click the "Continue with Burp Suite Professional" button, then paste the license key in the activation section, and click Next
-4. Choose Manual Activation in Burp Suite
-5. Click on Copy Request in Burp Suite
-6. Paste the request into the Activation Request section in h3110w0r1d-y_loader.jar
-7. Copy the activation response text from h3110w0r1d-y_loader.jar
-8. Paste it into the response field in Burp Suite or click the Paste Response button
-9. Click Next to complete activation
-
-**Note:** This is a one-time step for activating Burp Suite.
-
-### 8. Install .desktop file to application menu:
-```bash
-INSTALL_DIR=$(pwd)
-mkdir -p ~/.local/share/applications
-sed "s|REPLACE_EXEC_PATH|$INSTALL_DIR/burpsuite_pro_launcher|g" burpsuite-professional.desktop | \
-sed "s|REPLACE_ICON_PATH|$INSTALL_DIR/burpsuite-pro-icon.png|g" > ~/.local/share/applications/burpsuite-professional.desktop
-```
-
-### 9. Launch Burp Suite:
-```bash
+```sh
 ./burpsuite_pro_launcher
 ```
 
-## Installation Steps for Burp Suite Professional on  <a href="https://www.debian.org"><img src="https://img.shields.io/badge/Debian/Ubuntu/Kali-D70A53?&logo=debian&logoColor=white"></a>
+Continue with the [activation guide](#activation-guide).
 
-### 1. Install dependencies (wget, file, and OpenJDK 21):
+### Windows
 
-```bash
-sudo apt update
-sudo apt install -y wget file openjdk-21-jdk
+Use **Windows PowerShell 5.1** or **PowerShell 7**. Windows support is experimental.
+
+```powershell
+.\install.ps1 -s
 ```
 
-**Note:** On older Debian releases (like bookworm), Java 21 may not be available. In that case, the script will automatically install OpenJDK 17 instead.
+Choose a Burp version and loader. The default installation directory is
+`$env:LOCALAPPDATA\BurpSuite-Pro`. Missing Java is installed through `winget`.
 
-### 2. Download Burp Suite Professional:
+Open **BurpSuite Professional** from Start or the Desktop shortcut. Shortcuts use the Burp icon,
+generated from `burpsuite-pro-icon.png`, and the full path to `javaw.exe`, without a terminal window.
 
-```bash
-BURP_VERSION="2026.10.1"
-wget -O burpsuite_pro_v${BURP_VERSION}.jar --quiet --show-progress "https://portswigger.net/burp/releases/download?product=desktop&version=${BURP_VERSION}&type=Jar"
-file burpsuite_pro_v${BURP_VERSION}.jar
+Continue with the [activation guide](#activation-guide).
+
+## Activation guide
+
+### Linux loader
+
+Use the full OpenJDK 21 path for your distribution:
+
+```sh
+# Debian / Ubuntu / Kali
+/usr/lib/jvm/java-21-openjdk-amd64/bin/java -jar ./h3110w0r1d-y_loader.jar
+
+# Arch Linux
+/usr/lib/jvm/java-21-openjdk/bin/java -jar ./h3110w0r1d-y_loader.jar
 ```
 
-### 3. Choose and download loader (if not already present):
+### Windows loader
 
-```bash
-wget -O h3110w0r1d-y_loader.jar --quiet --show-progress https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/h3110w0r1d-y_loader.jar
-wget -O x-Ai_loader.jar --quiet --show-progress https://github.com/NoobGajen/BurpSuite_pro/raw/refs/heads/master/x-Ai_loader.jar
+Use the full path to Java 21 if you have multiple versions installed on your system.
+
+```powershell
+java -jar .\h3110w0r1d-y_loader.jar
 ```
 
-### 4. Create launcher script:
-
-```bash
-cat > burpsuite_pro_launcher << EOF
-#!/bin/bash
-/usr/lib/jvm/java-21-openjdk-amd64/bin/java -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$(pwd)/h3110w0r1d-y_loader.jar -jar $(pwd)/burpsuite_pro_v${BURP_VERSION}.jar &
-EOF
-```
-
-### 5. Make executable:
-```bash
-chmod +x burpsuite_pro_launcher
-```
-
-### 6. Provider Activation:
-```bash
-/usr/lib/jvm/java-21-openjdk-amd64/bin/java -jar h3110w0r1d-y_loader.jar
-```
+### Activation steps
 
 Once the loader GUI opens:
-1. Change the License Text to something like "licensed to yourName" (or whatever you prefer)
-2. Copy the license key from the h3110w0r1d-y_loader.jar license section
-3. Open Burp Suite and click the "Continue with Burp Suite Professional" button, then paste the license key in the activation section, and click Next
-4. Choose Manual Activation in Burp Suite
-5. Click on Copy Request in Burp Suite
-6. Paste the request into the Activation Request section in h3110w0r1d-y_loader.jar
-7. Copy the activation response text from h3110w0r1d-y_loader.jar
-8. Paste it into the response field in Burp Suite or click the Paste Response button
-9. Click Next to complete activation
 
-**Note:** This is a one-time step for activating Burp Suite.
+1. Change the License Text to something like "licensed to **yourName**" (or whatever you prefer).
+2. Copy the license key from the `h3110w0r1d-y_loader.jar` license section.
+3. Open Burp Suite and click the **Continue with Burp Suite Professional** button.
+4. Choose **Manually enter license key**, paste the key copied from the loader (or click **Paste**), then click **Next**.
+5. Click **Manual Activation** in Burp Suite.
+6. Click **Copy request** in Burp Suite.
+7. Paste the copied request into the **Activation Request** section in `h3110w0r1d-y_loader.jar`.
+8. Copy the **Activation Response** text from `h3110w0r1d-y_loader.jar`.
+9. Paste it into the response field in Burp Suite or click **Paste response** in Burp Suite.
+10. Click **Next** to complete activation.
 
-### 7. Install .desktop file to application menu:
-```bash
-INSTALL_DIR=$(pwd)
-mkdir -p ~/.local/share/applications
-sed "s|REPLACE_EXEC_PATH|$INSTALL_DIR/burpsuite_pro_launcher|g" burpsuite-professional.desktop | \
-sed "s|REPLACE_ICON_PATH|$INSTALL_DIR/burpsuite-pro-icon.png|g" > ~/.local/share/applications/burpsuite-professional.desktop
+> **Note:** After activation, you can use Burp Suite Professional normally from the application menu or desktop shortcut. If you encounter any issues, please check the documentation or create a [new issue](https://github.com/NoobGajen/BurpSuite_pro/issues/new/choose) on the GitHub repository.
+
+## Options
+
+<details>
+<summary>Show options</summary>
+
+Short flags are shared between platforms. PowerShell uses one dash for long parameter names;
+Linux uses two. On Linux, pass short options separately rather than combining them as `-yl`.
+
+| Short flag   | Linux                                    | PowerShell         | Purpose                                                 |
+| ------------ | ---------------------------------------- | ------------------ | ------------------------------------------------------- |
+| `-v VERSION` | `--version VERSION`                      | `-Version VERSION` | Install an exact version                                |
+| `-l`         | `--list-versions`                        | `-ListVersions`    | List versions and exit                                  |
+| `-n COUNT`   | `--limit COUNT`                          | `-Limit COUNT`     | List/menu size: default 10, range 1–1000                |
+| `-y`         | `--defaults`                             | `-Defaults`        | Use defaults without installer prompts                  |
+| `-d DIR`     | `--install-dir DIR`                      | `-InstallDir DIR`  | Set the installation directory                          |
+| `-j FILE`    | `--java-path FILE`                       | `-JavaPath FILE`   | Select a Java 21+ executable                            |
+| `-s`         | Not available                            | `-DesktopShortcut` | Also create a Desktop shortcut                          |
+| `-i`         | Java installation is automatic if needed | `-InstallJava`     | Compatibility flag; missing Java installs automatically |
+| `-h`         | `--help`                                 | `-Help`            | Show help                                               |
+
+`-y` suppresses installer questions. Operating-system authentication or dependency elevation
+may still require interaction.
+
+</details>
+
+## Versions and updates
+
+<details>
+<summary>Show versions and updates</summary>
+
+Release listing is **dynamic**: versions and channels come from
+[PortSwigger's releases](https://portswigger.net/burp/releases), not a hardcoded list.
+The installer excludes DAST, deduplicates desktop versions, and preserves PortSwigger's release order.
+When the JSON feed supplies too few desktop versions, it uses the year-by-year release archive.
+This fallback may take longer because channel labels are read from individual release pages.
+
+| Invocation        | Version selection                                                               |
+| ----------------- | ------------------------------------------------------------------------------- |
+| `-l`              | Show the most recent 10 desktop versions, then exit without installing anything |
+| `-l -n 20`        | Show 20 versions; `-n` also controls the interactive selection menu             |
+| Interactive setup | Choose a listed version or enter one manually; Enter chooses the newest listed  |
+| `-v VERSION`      | Reuse a valid matching local JAR, or download that exact version                |
+| `-y` without `-v` | Use the newest valid local JAR; otherwise use the pinned fallback **2026.10.1** |
+
+`-y` does not automatically upgrade to the latest online release.
+The interactive list can include Early Adopter releases; the default selection is not restricted to Stable.
+Channel names are preserved as supplied. `Early Adopter` appears in light gray in supported terminals.
+Redirected output stays plain; set `NO_COLOR=1` to disable highlighting.
+
+Listing failures stop with an error. Interactive setup lets you enter a version if listing fails.
+If the entire archive contains fewer versions than requested, listing shows those available with a warning.
+
+To update, list available releases and rerun with the desired version:
+
+```sh
+python3 install.py -l
+python3 install.py -v 2026.10.1 -y     # Replace with your chosen version
 ```
 
-### 8. Launch Burp Suite:
-
-```bash
-./burpsuite_pro_launcher
+```powershell
+.\install.ps1 -l
+.\install.ps1 -v 2026.10.1 -y          # Replace with your chosen version
 ```
 
-## Java helper command for injecting previously downloaded activator into Burp.
+Reuse the same `-d` value for a custom installation. Setup refreshes the launcher and shortcuts;
+older application JARs remain until you remove them.
 
-### 1. Updated Java helper command (Recommended)
-```bash
-# Arch Linux
-/usr/lib/jvm/java-21-openjdk/bin/java -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$(pwd)/h3110w0r1d-y_loader.jar -jar burpsuite_pro.jar
+</details>
 
-# OR Debian/Kali
-/usr/lib/jvm/java-21-openjdk-amd64/bin/java -noverify --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$(pwd)/h3110w0r1d-y_loader.jar -jar burpsuite_pro.jar
+## Downloads and manual installation
+
+<details>
+<summary>Show downloads and manual installation</summary>
+
+Downloads go to a temporary file before replacing an installed JAR. Both installers require a readable
+ZIP/JAR archive with a nonempty `Main-Class` manifest entry. Linux checks every entry's CRC;
+Windows reads every entry and checks its expanded length.
+HTML error pages saved as `.jar`, empty files, malformed manifests, and truncated archives are rejected.
+
+On failure, setup prints **Failed to download** with manual-download instructions,
+cleans up the temporary file, and preserves an existing installed JAR.
+These checks validate file format and integrity; they do not authenticate the publisher or scan for malware.
+
+For a manual download:
+
+1. Choose a desktop release on [PortSwigger's official releases page](https://portswigger.net/burp/releases).
+2. Download the **JAR**, not a native installer or an HTML page.
+3. Save it in your installation directory as `burpsuite_pro_vVERSION.jar` or
+   `burpsuite_desktop_vVERSION.jar`, for example `burpsuite_desktop_v2026.10.1.jar`.
+4. Rerun setup with `-v VERSION -y` and the same `-d` if applicable. The local JAR is checked before reuse.
+
+</details>
+
+## Bundled components
+
+<details>
+<summary>Show bundled components</summary>
+
+The repository includes `h3110w0r1d-y_loader.jar` and `x-Ai_loader.jar`.
+Interactive setup offers the available components; `-y` prefers `h3110w0r1d-y_loader.jar`,
+then an existing alternative. Missing components must be restored from the repository;
+setup does not download these components separately.
+
+The source code, build instructions, and exact upstream versions for these third-party
+binaries are not recorded here. Their checksums identify the bundled files; they do not
+verify who published them.
+
+| File                      | Credited author                                 | SHA-256                                                            |
+| ------------------------- | ----------------------------------------------- | ------------------------------------------------------------------ |
+| `h3110w0r1d-y_loader.jar` | [h3110w0r1d-y](https://github.com/h3110w0r1d-y) | `1e288c686963eafc34411d4f94265eb1809492ab57a474848669eb3285a2afb3` |
+| `x-Ai_loader.jar`         | [x-ai](https://github.com/x-ai)                 | `23499f88ed11fa69e6a9bf5b17594b326ef71c631d28da804f02c3ef08c68150` |
+
+</details>
+
+## Troubleshooting
+
+<details>
+<summary>Show troubleshooting</summary>
+
+| Problem                                               | What to check                                                                                                            |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Old Linux command uses `install.sh`                   | Use `python3 install.py`; the Bash installer has been removed                                                            |
+| Python is missing on Linux                            | Install Python 3.8+ with your distribution's package manager before running setup                                        |
+| Java is missing or too old                            | Pass `-j` with the full Java 21+ executable path; verify that executable with `-version`                                 |
+| Download fails or returns HTML                        | Follow the manual-download steps above; the filename extension is not enough                                             |
+| Version listing fails                                 | Check internet access and the official releases page; use `-v VERSION` to bypass listing                                 |
+| Linux menu entry is missing                           | Run setup as your own user; inspect `${XDG_DATA_HOME:-$HOME/.local/share}/applications/burpsuite-professional.desktop`   |
+| Launcher paths no longer exist                        | Keep the installation directory in place, or rerun setup with the new `-d` and `-j` paths                                |
+| Windows launch fails                                  | Run the script launcher from PowerShell, then read `launcher.log` and `launcher-error.log` in the installation directory |
+| Windows shortcut shows PowerShell or opens a terminal | Rerun the updated installer with `-y -s` and the same installation directory; unpin and repin old taskbar shortcuts      |
+
+If Windows blocks a reviewed script, and your organization's policy permits it, use a process-only invocation:
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1 -l -n 20
 ```
 
-### 2. Previous Java helper command fallback (Parent Repo)
-```bash
-# Arch Linux
-/usr/lib/jvm/java-21-openjdk/bin/java -noverify -Dsun.java2d.d3d=false -Dsun.java2d.noddraw=true --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED -javaagent:$(pwd)/x-Ai_loader.jar -jar burpsuite_pro.jar
+Generated Windows shortcuts start `javaw.exe` directly and do not run PowerShell scripts.
+Group Policy can still prevent running the installer or script launcher. See Microsoft's
+[execution-policy documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
+For Java requirements, see PortSwigger's
+[command-line launch documentation](https://portswigger.net/burp/documentation/desktop/troubleshooting/launch-from-command-line).
 
-# OR Debian/Kali
-/usr/lib/jvm/java-21-openjdk-amd64/bin/java -noverify -Dsun.java2d.d3d=false -Dsun.java2d.noddraw=true --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED -javaagent:$(pwd)/x-Ai_loader.jar -jar burpsuite_pro.jar
+</details>
+
+## Uninstall
+
+<details>
+<summary>Show uninstall</summary>
+
+Close Burp and preserve any project files you need first.
+
+- **Linux:** Remove the user application-menu entry, generated `burpsuite_pro_launcher`, downloaded
+  Burp JARs, and copied component/icon files from your chosen installation directory.
+  If you installed in the repository, keep source files you still need.
+- **Windows:** Remove the Start Menu and optional Desktop shortcuts, then remove the chosen
+  installation directory after preserving your project files.
+
+Java is a separate dependency and is not removed automatically.
+
+</details>
+
+## Development and feedback
+
+<details>
+<summary>Show development and feedback</summary>
+
+Check syntax and help without installing anything:
+
+```sh
+python3 -m py_compile install.py
+python3 install.py -h
 ```
 
+```powershell
+.\install.ps1 -h
+```
 
-## 🔧 Troubleshooting
+A real installation and GUI launch still need verification on each supported platform.
 
-### Download returns HTML file instead of JAR
-**Problem:** The downloaded file is an HTML document instead of a JAR file.
+Use the [bug report or feature request forms](https://github.com/NoobGajen/BurpSuite_pro/issues/new/choose)
+for feedback. Bug reports should include your OS, exact command, repository revision, and relevant error output.
+Remove private information from logs and screenshots.
+See [LICENSE](LICENSE) for the repository's license; Burp Suite and third-party components retain their own licenses.
 
-**Solution:**
-- Ensure you're using `product=desktop` in the download URL (not `product=pro`)
-- Check that the version number is correct and available on PortSwigger's releases page
-- Try downloading directly from [PortSwigger's official site](https://portswigger.net/burp/releases#professional)
-
-### Java version errors
-**Problem:** "Unsupported class file major version" or similar Java errors.
-
-**Solution:**
-- The script automatically installs Java 21 (or 17 for older systems)
-- Verify your Java version: `java -version`
-- On Arch Linux: `sudo archlinux-java set java-21-openjdk`
-- On Debian/Ubuntu: The script handles this automatically
-
-### Loader not found
-**Problem:** Script fails with "No loader found" error.
-
-**Solution:**
-- Ensure you're in the repository directory
-- Check that loader files exist: `ls -la *loader*.jar`
-- The script will download the loader automatically if missing
-- Manually download from the [Loader Options](#-loader-options) section
-
-### Permission denied errors
-**Problem:** "Permission denied" when running the installer.
-
-**Solution:**
-- Make the script executable: `chmod +x install.sh`
-- Run with sudo if needed: `sudo ./install.sh`
-- Ensure you have write permissions in the installation directory
-
-### Burp Suite won't start
-**Problem:** Launcher script runs but Burp Suite doesn't open.
-
-**Solution:**
-- Check that Java is installed: `java -version`
-- Verify the JAR file exists and is valid: `file burpsuite_pro_v*.jar`
-- Ensure the loader file exists: `ls -la h3110w0r1d-y_loader.jar`
-- Try running the Java command directly from the [Java Helper Commands](#java-helper-command-for-injecting-previously-downloaded-activator-into-burp) section
-
----
-
-## 📝 Discussion
-
-
-If you have questions or better suggestions on how to use it, you can ask [issue](https://github.com/NoobGajen/BurpSuite_pro/issues).
-NB! Be prepared to bear the full weight of responsibility for any incorrectly asked questions and general stupidity in my repository. 
-
-## ❤️ Acknowledgements
-
-Special thanks to the loader developers:
-- [h3110w0r1d-y](https://github.com/h3110w0r1d-y) - For the recommended loader
-- [x-ai](https://github.com/x-ai) - For the default loader from the parent repository
+</details>

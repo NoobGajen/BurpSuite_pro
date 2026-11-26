@@ -1,0 +1,47 @@
+name: Feature request
+description: Suggest an installer improvement, a new option, or support for another platform.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea to improve the project? Check existing issues first, then explain the problem and the behavior you would like.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Explain who needs this improvement and when it would help.
+      placeholder: "Example: Users need a way to choose the installation directory without editing the script."
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed behavior
+      description: Describe how the feature should work. Include an example command or workflow if useful.
+      placeholder: "Example: Add an installer option that accepts a destination directory and updates the launcher paths."
+    validations:
+      required: true
+  - type: dropdown
+    id: affected_platforms
+    attributes:
+      label: Affected platforms
+      multiple: true
+      options:
+        - Linux
+        - Windows
+        - Another platform
+        - Documentation or general project improvement
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives or current workaround
+      description: Describe anything you have already tried, if applicable.
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: Add examples, screenshots, or relevant links that explain the idea.

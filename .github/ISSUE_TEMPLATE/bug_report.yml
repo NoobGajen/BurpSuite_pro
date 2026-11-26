@@ -1,0 +1,80 @@
+name: Bug report
+description: Report a problem with installation, version listing, downloads, or launching Burp.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Please check the README and existing issues first.
+        Share errors as text when possible. Remove license keys, tokens, passwords, and private project data from logs or screenshots.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What went wrong?
+      description: Describe what happened and what you expected instead.
+      placeholder: "Example: I requested 20 versions, but the list only shows four."
+    validations:
+      required: true
+  - type: dropdown
+    id: operating_system
+    attributes:
+      label: Operating system
+      options:
+        - Arch Linux or an Arch-based distribution
+        - Debian
+        - Ubuntu
+        - Kali Linux
+        - Windows
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: os_version
+    attributes:
+      label: OS version and architecture
+      placeholder: "Example: Windows 11 x64, Ubuntu 24.04 ARM64, or Arch Linux x86_64"
+    validations:
+      required: true
+  - type: input
+    id: burp_version
+    attributes:
+      label: Burp version and channel
+      description: Include the requested version and Stable / Early Adopter label if known. Enter "not applicable" for problems unrelated to a Burp version.
+      placeholder: "Example: 2026.11.2, Stable"
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Include the exact installer command and any menu selections. If using a shortcut, say which one.
+      placeholder: |
+        1. Download or clone the repository.
+        2. Run python3 install.py -l -n 20 (Linux) or .\install.ps1 -l -n 20 (Windows).
+        3. Describe the unexpected result.
+    validations:
+      required: true
+  - type: textarea
+    id: error_output
+    attributes:
+      label: Error message or terminal output
+      description: Paste the relevant output. For Windows launch failures, include the relevant part of launcher.log from the installation directory. If there is no error message, say so.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: runtime_versions
+    attributes:
+      label: Runtime versions
+      description: If available, include the Java executable path used by the launcher and its -version output. On Linux, also include python3 --version. On Windows, include $PSVersionTable.PSVersion. The default Java on PATH may differ from the launcher's Java.
+      render: text
+  - type: input
+    id: project_revision
+    attributes:
+      label: Repository revision
+      description: Paste the output of git rev-parse --short HEAD, or say when you downloaded the repository ZIP.
+      placeholder: "Example: commit abc1234, or ZIP downloaded on YYYY-MM-DD"
+  - type: textarea
+    id: extra_context
+    attributes:
+      label: Screenshots or additional context
+      description: Add screenshots, workarounds you tried, or anything else that helps explain the problem. Hide private information before uploading images.

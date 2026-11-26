@@ -1,6 +1,5 @@
 [Desktop Entry]
 Name=BurpSuite Professional
-Encoding=UTF-8
 Exec=REPLACE_EXEC_PATH
 Icon=REPLACE_ICON_PATH
 StartupNotify=false
@@ -8,7 +7,7 @@ Terminal=false
 Version=1.0
 Type=Application
 Comment=Burp Suite is an integrated platform for attacking web applications (professional edition)
-Categories=Development;Security;03-webapp-analysis;03-06-web-application-proxies;
+Categories=System;Security;
 X-BlackArch-Package=burpsuite
 StartupWMClass=burp-StartBurp
 MimeType=application/x-extension-burp;
