@@ -1,5 +1,8 @@
 blank_issues_enabled: true
 contact_links:
+  - name: Setup questions and troubleshooting (Q&A)
+    url: https://github.com/NoobGajen/BurpSuite_pro/discussions/categories/q-a
+    about: Ask setup questions or get troubleshooting help. Use bug reports for reproducible installer problems.
   - name: Installation guide and troubleshooting
     url: https://github.com/NoobGajen/BurpSuite_pro/blob/master/README.md
     about: Check the Linux and Windows instructions, command options, and troubleshooting tips before opening an issue.

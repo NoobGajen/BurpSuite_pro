@@ -299,7 +299,7 @@ python3 install.py -h
 A real installation and GUI launch still need verification on each supported platform.
 
 Use the <a href="https://github.com/NoobGajen/BurpSuite_pro/issues/new/choose" target="_blank" rel="noopener noreferrer">bug report or feature request forms</a>
-for feedback. Bug reports should include your OS, exact command, repository revision, and relevant error output.
+for feedback. Bug reports should include your OS, exact command, steps to reproduce, and relevant error output.
 Remove private information from logs and screenshots.
 See [LICENSE](LICENSE) for the repository's license; Burp Suite and third-party components retain their own licenses.
 
