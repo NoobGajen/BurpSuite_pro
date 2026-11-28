@@ -3,7 +3,7 @@
 # Burp Suite installer
 
 Install on Arch Linux, Debian/Ubuntu/Kali/Parrot, or Windows. Professional features require an
-appropriate license from [PortSwigger](https://portswigger.net/burp/pro).
+appropriate license from <a href="https://portswigger.net/burp/pro" target="_blank" rel="noopener noreferrer">PortSwigger</a>.
 
 ## Purpose and licensing
 
@@ -12,17 +12,17 @@ cannot easily afford expensive tools. My goal is to help learners build practica
 skills, prepare for a first job, and eventually support the tools they use through
 paid licenses or properly licensed access provided by an employer.
 
-Please purchase an appropriate [Burp Suite Professional license from PortSwigger](https://portswigger.net/burp/pro)
+Please purchase an appropriate <a href="https://portswigger.net/burp/pro" target="_blank" rel="noopener noreferrer">Burp Suite Professional license from PortSwigger</a>
 for professional or commercial work. Professional use requires a valid license;
 educational intent does not automatically exempt other uses from licensing requirements.
 This project is independent of PortSwigger and is not endorsed by them. Its educational
 purpose does not grant permission to bypass licensing or override their terms.
 
 Students looking for a free starting point can use
-[Burp Suite Community Edition](https://portswigger.net/burp/communitydownload)
-and the [Web Security Academy](https://portswigger.net/web-security).
+<a href="https://portswigger.net/burp/communitydownload" target="_blank" rel="noopener noreferrer">Burp Suite Community Edition</a>
+and the <a href="https://portswigger.net/web-security" target="_blank" rel="noopener noreferrer">Web Security Academy</a>.
 For licensed Professional installations, follow PortSwigger's
-[official activation guide](https://portswigger.net/burp/documentation/desktop/getting-started/activating-burp-license).
+<a href="https://portswigger.net/burp/documentation/desktop/getting-started/activating-burp-license" target="_blank" rel="noopener noreferrer">official activation guide</a>.
 
 ## Contents
 
@@ -41,7 +41,7 @@ For licensed Professional installations, follow PortSwigger's
 
 Download and extract the repository ZIP, or clone it:
 
-```sh
+```bash
 git clone https://github.com/NoobGajen/BurpSuite_pro.git
 cd BurpSuite_pro
 ```
@@ -50,14 +50,14 @@ cd BurpSuite_pro
 
 Requires **Python 3.8+**. Run as your normal user; setup uses `sudo` for Java installation only.
 
-```sh
+```bash
 python3 install.py
 ```
 
 Choose a Burp version and loader. The default installation directory is the repository directory.
 After setup, open **BurpSuite Professional** from your application menu, or run from the installation directory:
 
-```sh
+```bash
 ./burpsuite_pro_launcher
 ```
 
@@ -85,7 +85,7 @@ Continue with the [activation guide](#activation-guide).
 
 Use the full OpenJDK 21 path for your distribution:
 
-```sh
+```bash
 # Debian / Ubuntu / Kali
 /usr/lib/jvm/java-21-openjdk-amd64/bin/java -jar ./h3110w0r1d-y_loader.jar
 
@@ -116,7 +116,7 @@ Once the loader GUI opens:
 9. Paste it into the response field in Burp Suite or click **Paste response** in Burp Suite.
 10. Click **Next** to complete activation.
 
-> **Note:** After activation, you can use Burp Suite Professional normally from the application menu or desktop shortcut. If you encounter any issues, please check the documentation or create a [new issue](https://github.com/NoobGajen/BurpSuite_pro/issues/new/choose) on the GitHub repository.
+> **Note:** After activation, open Burp Suite Professional from the application menu or desktop shortcut. For setup questions or troubleshooting help, start a [Q&A discussion](https://github.com/NoobGajen/BurpSuite_pro/discussions/categories/q-a). To report a reproducible bug in the installer, [open an issue](https://github.com/NoobGajen/BurpSuite_pro/issues/new/choose).
 
 ## Options
 
@@ -149,7 +149,7 @@ may still require interaction.
 <summary>Show versions and updates</summary>
 
 Release listing is **dynamic**: versions and channels come from
-[PortSwigger's releases](https://portswigger.net/burp/releases), not a hardcoded list.
+<a href="https://portswigger.net/burp/releases" target="_blank" rel="noopener noreferrer">PortSwigger's releases</a>, not a hardcoded list.
 The installer excludes DAST, deduplicates desktop versions, and preserves PortSwigger's release order.
 When the JSON feed supplies too few desktop versions, it uses the year-by-year release archive.
 This fallback may take longer because channel labels are read from individual release pages.
@@ -172,7 +172,7 @@ If the entire archive contains fewer versions than requested, listing shows thos
 
 To update, list available releases and rerun with the desired version:
 
-```sh
+```bash
 python3 install.py -l
 python3 install.py -v 2026.10.1 -y     # Replace with your chosen version
 ```
@@ -203,7 +203,7 @@ These checks validate file format and integrity; they do not authenticate the pu
 
 For a manual download:
 
-1. Choose a desktop release on [PortSwigger's official releases page](https://portswigger.net/burp/releases).
+1. Choose a desktop release on <a href="https://portswigger.net/burp/releases" target="_blank" rel="noopener noreferrer">PortSwigger's official releases page</a>.
 2. Download the **JAR**, not a native installer or an HTML page.
 3. Save it in your installation directory as `burpsuite_pro_vVERSION.jar` or
    `burpsuite_desktop_vVERSION.jar`, for example `burpsuite_desktop_v2026.10.1.jar`.
@@ -225,10 +225,10 @@ The source code, build instructions, and exact upstream versions for these third
 binaries are not recorded here. Their checksums identify the bundled files; they do not
 verify who published them.
 
-| File                      | Credited author                                 | SHA-256                                                            |
-| ------------------------- | ----------------------------------------------- | ------------------------------------------------------------------ |
-| `h3110w0r1d-y_loader.jar` | [h3110w0r1d-y](https://github.com/h3110w0r1d-y) | `1e288c686963eafc34411d4f94265eb1809492ab57a474848669eb3285a2afb3` |
-| `x-Ai_loader.jar`         | [x-ai](https://github.com/x-ai)                 | `23499f88ed11fa69e6a9bf5b17594b326ef71c631d28da804f02c3ef08c68150` |
+| File                      | Credited author                                                                                      | SHA-256                                                            |
+| ------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| `h3110w0r1d-y_loader.jar` | <a href="https://github.com/h3110w0r1d-y" target="_blank" rel="noopener noreferrer">h3110w0r1d-y</a> | `1e288c686963eafc34411d4f94265eb1809492ab57a474848669eb3285a2afb3` |
+| `x-Ai_loader.jar`         | <a href="https://github.com/x-ai" target="_blank" rel="noopener noreferrer">x-ai</a>                 | `23499f88ed11fa69e6a9bf5b17594b326ef71c631d28da804f02c3ef08c68150` |
 
 </details>
 
@@ -257,9 +257,9 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install.ps1 -l -n 20
 
 Generated Windows shortcuts start `javaw.exe` directly and do not run PowerShell scripts.
 Group Policy can still prevent running the installer or script launcher. See Microsoft's
-[execution-policy documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
+<a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies" target="_blank" rel="noopener noreferrer">execution-policy documentation</a>.
 For Java requirements, see PortSwigger's
-[command-line launch documentation](https://portswigger.net/burp/documentation/desktop/troubleshooting/launch-from-command-line).
+<a href="https://portswigger.net/burp/documentation/desktop/troubleshooting/launch-from-command-line" target="_blank" rel="noopener noreferrer">command-line launch documentation</a>.
 
 </details>
 
@@ -287,7 +287,7 @@ Java is a separate dependency and is not removed automatically.
 
 Check syntax and help without installing anything:
 
-```sh
+```bash
 python3 -m py_compile install.py
 python3 install.py -h
 ```
@@ -298,7 +298,7 @@ python3 install.py -h
 
 A real installation and GUI launch still need verification on each supported platform.
 
-Use the [bug report or feature request forms](https://github.com/NoobGajen/BurpSuite_pro/issues/new/choose)
+Use the <a href="https://github.com/NoobGajen/BurpSuite_pro/issues/new/choose" target="_blank" rel="noopener noreferrer">bug report or feature request forms</a>
 for feedback. Bug reports should include your OS, exact command, repository revision, and relevant error output.
 Remove private information from logs and screenshots.
 See [LICENSE](LICENSE) for the repository's license; Burp Suite and third-party components retain their own licenses.
